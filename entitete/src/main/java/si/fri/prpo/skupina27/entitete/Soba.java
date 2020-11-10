@@ -4,9 +4,14 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity(name = "soba")
+
 @NamedQueries(value =
         {
-                @NamedQuery(name = "Opomnik.getAll", query = "SELECT o FROM soba o")
+                @NamedQuery(name = "Soba.getAll", query = "SELECT s FROM soba s"),
+                @NamedQuery(name = "Soba.getName",
+                        query = "SELECT s.imeSobe FROM soba s WHERE s.imeSobe = :soba"),
+                @NamedQuery(name = "Soba.getSteviloLjudi",
+                        query = "SELECT s.stLjudi FROM soba s WHERE s.imeSobe = :soba")
         })
 
 public class Soba {
@@ -15,16 +20,22 @@ public class Soba {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer sobaId;
 
+    @Column(name = "ime_sobe")
     private String imeSobe;
 
     private Integer velikost;
 
+    @Column(name = "st_ljudi")
     private Integer stLjudi;
 
+    @Column(name = "max_ljudi")
     private Integer maxLjudi;
 
-    @OneToMany //soba ima lahko več vrat
+    @OneToMany(mappedBy = "sobaId", cascade = CascadeType.ALL)
     private List<Vrata> vrata;
+
+
+    // GETTERJI IN SETTERJI
 
     public Integer getSobaId() {
         return sobaId;
@@ -66,12 +77,7 @@ public class Soba {
         this.maxLjudi = maxLjudi;
     }
 
-    public List<Vrata> getVrata() {
-        return vrata;
-    }
-
-    public void setVrata(List<Vrata> vrata) {
-        this.vrata = vrata;
+    public String toString() {
+        return String.format("id: %d, ime: %s in max ljudi: %d", this.sobaId, this.imeSobe, this.maxLjudi);
     }
 }
-

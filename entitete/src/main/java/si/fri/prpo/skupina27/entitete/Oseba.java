@@ -6,21 +6,27 @@ import java.util.*;
 @Entity(name = "oseba")
 @NamedQueries(value =
         {
-                @NamedQuery(name = "Opomnik.getAll", query = "SELECT o FROM oseba o")
+                @NamedQuery(name = "Oseba.getAll", query = "SELECT o FROM oseba o"),
+                @NamedQuery(name = "Oseba.getById",
+                        query = "SELECT o FROM oseba o WHERE o.osebaId = :id"),
+                @NamedQuery(name = "Oseba.getImePriimekSobeById",
+                        query = "SELECT o.ime, o.priimek FROM oseba o WHERE o.osebaId = :id")
         })
 
 public class Oseba {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer osebaId;
 
     private String ime;
 
     private String priimek;
 
-    @OneToMany //ena oseba ima lahko več sob
-    private List<Soba> sobe;
+    //@JoinColumn(name = "oseba_id")
+    //@OneToMany //ena oseba ima lahko več sob
+    //private List<Soba> sobe;
 
     public Integer getOsebaId() {
         return osebaId;
@@ -45,12 +51,16 @@ public class Oseba {
     public void setPriimek(String priimek) {
         this.priimek = priimek;
     }
-
+/*
     public List<Soba> getSobe() {
         return sobe;
     }
 
     public void setSobe(List<Soba> sobe) {
         this.sobe = sobe;
+    }
+*/
+    public String toString() {
+        return String.format("%s %s", this.ime, this.priimek);
     }
 }
