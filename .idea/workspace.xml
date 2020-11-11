@@ -23,21 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d5ec7aa-b8b6-4906-b89b-812f1456c81e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/main/java/si/fri/prpo/skupina27/servleti/JPAServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entitete/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entitete/src/main/resources/sql-scripts/init-db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storitve/src/main/java/si/fri/prpo/skupina27/storitve/OsebeZrno.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storitve/src/main/java/si/fri/prpo/skupina27/storitve/SobeZrno.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storitve/src/main/java/si/fri/prpo/skupina27/storitve/VrataZrno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entitete/src/main/java/si/fri/prpo/skupina27/entitete/Oseba.java" beforeDir="false" afterPath="$PROJECT_DIR$/entitete/src/main/java/si/fri/prpo/skupina27/entitete/Oseba.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entitete/src/main/java/si/fri/prpo/skupina27/entitete/Soba.java" beforeDir="false" afterPath="$PROJECT_DIR$/entitete/src/main/java/si/fri/prpo/skupina27/entitete/Soba.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entitete/src/main/java/si/fri/prpo/skupina27/entitete/Vrata.java" beforeDir="false" afterPath="$PROJECT_DIR$/entitete/src/main/java/si/fri/prpo/skupina27/entitete/Vrata.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,17 +85,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -122,7 +97,8 @@
       <workItem from="1604781930813" duration="11163000" />
       <workItem from="1605039381182" duration="1332000" />
       <workItem from="1605040887117" duration="493000" />
-      <workItem from="1605041452431" duration="4704000" />
+      <workItem from="1605041452431" duration="5473000" />
+      <workItem from="1605051716893" duration="1138000" />
     </task>
     <servers />
   </component>
@@ -170,22 +146,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605040725233" />
-    <state width="1323" height="289" key="GridCell.Tab.0.bottom" timestamp="1605047625557">
+    <state width="1323" height="289" key="GridCell.Tab.0.bottom" timestamp="1605051363234">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="289" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605047625557" />
-    <state width="1323" height="289" key="GridCell.Tab.0.center" timestamp="1605047625557">
+    <state width="1323" height="289" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605051363234" />
+    <state width="1323" height="289" key="GridCell.Tab.0.center" timestamp="1605051363234">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="289" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605047625557" />
-    <state width="1323" height="289" key="GridCell.Tab.0.left" timestamp="1605047625557">
+    <state width="1323" height="289" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605051363234" />
+    <state width="1323" height="289" key="GridCell.Tab.0.left" timestamp="1605051363234">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="289" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605047625557" />
-    <state width="1323" height="289" key="GridCell.Tab.0.right" timestamp="1605047625557">
+    <state width="1323" height="289" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605051363234" />
+    <state width="1323" height="289" key="GridCell.Tab.0.right" timestamp="1605051363234">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="289" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605047625557" />
+    <state width="1323" height="289" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605051363234" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1605041337545">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
