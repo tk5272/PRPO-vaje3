@@ -3,9 +3,9 @@ package si.fri.prpo.skupina27.servleti;
 import si.fri.prpo.skupina27.entitete.Oseba;
 import si.fri.prpo.skupina27.entitete.Soba;
 import si.fri.prpo.skupina27.entitete.Vrata;
-import si.fri.prpo.skupina27.storitve.OsebeZrno;
-import si.fri.prpo.skupina27.storitve.SobeZrno;
-import si.fri.prpo.skupina27.storitve.VrataZrno;
+import si.fri.prpo.skupina27.storitve.zrna.OsebeZrno;
+import si.fri.prpo.skupina27.storitve.zrna.SobeZrno;
+import si.fri.prpo.skupina27.storitve.zrna.VrataZrno;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -47,7 +47,7 @@ public class JPAServlet extends HttpServlet {
            pw.println(o.get(i));
 
         pw.println("\nVRATA:");
-        List<Vrata> vr = vrataZrno.getVrata();
+        List<Vrata> vr = vrataZrno.getAllVrata();
         for(int i = 0; i < vr.size(); i++)
             pw.println(vr.get(i));
 

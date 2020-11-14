@@ -24,9 +24,8 @@ public class Oseba {
 
     private String priimek;
 
-    //@JoinColumn(name = "oseba_id")
-    //@OneToMany //ena oseba ima lahko več sob
-    //private List<Soba> sobe;
+    @OneToMany(mappedBy = "oseba") //ena oseba ima lahko več sob
+    private List<Soba> sobe;
 
     public Integer getOsebaId() {
         return osebaId;
@@ -51,7 +50,7 @@ public class Oseba {
     public void setPriimek(String priimek) {
         this.priimek = priimek;
     }
-/*
+
     public List<Soba> getSobe() {
         return sobe;
     }
@@ -59,7 +58,7 @@ public class Oseba {
     public void setSobe(List<Soba> sobe) {
         this.sobe = sobe;
     }
-*/
+
     public String toString() {
         return String.format("%s %s", this.ime, this.priimek);
     }

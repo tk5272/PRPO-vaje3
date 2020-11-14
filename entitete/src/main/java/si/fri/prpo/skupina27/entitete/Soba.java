@@ -34,6 +34,8 @@ public class Soba {
     @OneToMany(mappedBy = "sobaId", cascade = CascadeType.ALL)
     private List<Vrata> vrata;
 
+    @ManyToOne
+    private Oseba oseba;
 
     // GETTERJI IN SETTERJI
 
@@ -76,6 +78,14 @@ public class Soba {
     public void setMaxLjudi(Integer maxLjudi) {
         this.maxLjudi = maxLjudi;
     }
+
+    public List<Vrata> getVrata() { return vrata; }
+
+    public void setVrata(List<Vrata> vrata) { this.vrata = vrata; }
+
+    public Oseba getOseba() { return oseba; }
+
+    public void setOseba(Oseba oseba) { this.oseba = oseba; }
 
     public String toString() {
         return String.format("id: %d, ime: %s in max ljudi: %d", this.sobaId, this.imeSobe, this.maxLjudi);
