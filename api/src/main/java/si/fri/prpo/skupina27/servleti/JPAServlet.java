@@ -3,7 +3,9 @@ package si.fri.prpo.skupina27.servleti;
 import si.fri.prpo.skupina27.entitete.Oseba;
 import si.fri.prpo.skupina27.entitete.Soba;
 import si.fri.prpo.skupina27.entitete.Vrata;
+import si.fri.prpo.skupina27.storitve.dtos.DodajanjeVratDto;
 import si.fri.prpo.skupina27.storitve.zrna.OsebeZrno;
+import si.fri.prpo.skupina27.storitve.zrna.PoslovneMetodeZrno;
 import si.fri.prpo.skupina27.storitve.zrna.SobeZrno;
 import si.fri.prpo.skupina27.storitve.zrna.VrataZrno;
 
@@ -29,6 +31,9 @@ public class JPAServlet extends HttpServlet {
     @Inject
     private OsebeZrno osebeZrno;
 
+    @Inject
+    private PoslovneMetodeZrno pZrno;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("hello");
@@ -53,10 +58,16 @@ public class JPAServlet extends HttpServlet {
 
         pw.println("\nime sobe z vrati 1: "+ vr.get(0).getSoba().getImeSobe());
 
-        List<Oseba> osebje = sobeZrno.getOsebje(1);
-        for(int i = 0; i < osebje.size(); i++)
-            pw.println(osebje.get(i));
-            pw.println(osebje.size());
+        pw.println("\nDODAJ 3 VRATA SOBI Z ID 1\n");
+        DodajanjeVratDto dvt = new DodajanjeVratDto();
+        dvt.setSobaId(1);
+        dvt.setStVrat(3);
+        pZrno.dodajStVrat(dvt);
+
+        pw.println("\nVRATA:");
+        vr = vrataZrno.getAllVrata();
+        for(int i = 0; i < vr.size(); i++)
+            pw.println(vr.get(i));
 
     }
 }
