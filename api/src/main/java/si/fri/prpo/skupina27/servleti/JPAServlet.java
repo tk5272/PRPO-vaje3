@@ -51,6 +51,12 @@ public class JPAServlet extends HttpServlet {
         for(int i = 0; i < vr.size(); i++)
             pw.println(vr.get(i));
 
-        pw.println("\nime sobe z vrati 1: "+ vr.get(0).getSobaId().getImeSobe());
+        pw.println("\nime sobe z vrati 1: "+ vr.get(0).getSoba().getImeSobe());
+
+        List<Oseba> osebje = sobeZrno.getOsebje(1);
+        for(int i = 0; i < osebje.size(); i++)
+            pw.println(osebje.get(i));
+            pw.println(osebje.size());
+
     }
 }

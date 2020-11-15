@@ -17,21 +17,21 @@ import java.util.logging.Logger;
 
 public class VrataZrno {
 
-    private Logger log = Logger.getLogger(si.fri.prpo.skupina27.storitve.zrna.OsebeZrno.class.getName());
+    private Logger log = Logger.getLogger(OsebeZrno.class.getName());
     private String zrno;
 
     @PostConstruct
     private void init() {
 
         zrno = UUID.randomUUID().toString();
-        log.info("Inicializacija zrna " + si.fri.prpo.skupina27.storitve.zrna.OsebeZrno.class.getSimpleName() +
+        log.info("Inicializacija zrna " + OsebeZrno.class.getSimpleName() +
                 "Identifikator zrna je: " + zrno);
 
     }
 
     @PreDestroy
     private void destroy() {
-        log.info("Deinicializacija zrna " + si.fri.prpo.skupina27.storitve.zrna.OsebeZrno.class.getSimpleName() +
+        log.info("Deinicializacija zrna " + OsebeZrno.class.getSimpleName() +
                 "Identifikator zrna je: " + zrno);
 
     }

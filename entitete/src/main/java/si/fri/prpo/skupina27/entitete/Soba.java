@@ -11,7 +11,9 @@ import java.util.*;
                 @NamedQuery(name = "Soba.getName",
                         query = "SELECT s.imeSobe FROM soba s WHERE s.imeSobe = :soba"),
                 @NamedQuery(name = "Soba.getSteviloLjudi",
-                        query = "SELECT s.stLjudi FROM soba s WHERE s.imeSobe = :soba")
+                        query = "SELECT s.stLjudi FROM soba s WHERE s.imeSobe = :soba"),
+                @NamedQuery(name = "Soba.getOsebje",
+                        query = "SELECT s.osebe FROM soba s WHERE s.sobaId = :sobaId")
         })
 
 public class Soba {
@@ -31,11 +33,12 @@ public class Soba {
     @Column(name = "max_ljudi")
     private Integer maxLjudi;
 
-    @OneToMany(mappedBy = "sobaId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "soba", cascade = CascadeType.ALL)
     private List<Vrata> vrata;
 
     @ManyToOne
-    private Oseba oseba;
+    @JoinColumn(name = "osebe_sobe")
+    private Oseba osebe;
 
     // GETTERJI IN SETTERJI
 
@@ -83,9 +86,9 @@ public class Soba {
 
     public void setVrata(List<Vrata> vrata) { this.vrata = vrata; }
 
-    public Oseba getOseba() { return oseba; }
+    public Oseba getOsebe() { return osebe; }
 
-    public void setOseba(Oseba oseba) { this.oseba = oseba; }
+    public void setOsebe(Oseba osebe) { this.osebe = osebe; }
 
     public String toString() {
         return String.format("id: %d, ime: %s in max ljudi: %d", this.sobaId, this.imeSobe, this.maxLjudi);

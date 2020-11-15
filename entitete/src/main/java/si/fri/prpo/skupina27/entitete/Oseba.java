@@ -17,14 +17,13 @@ public class Oseba {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer osebaId;
 
     private String ime;
 
     private String priimek;
 
-    @OneToMany(mappedBy = "oseba") //ena oseba ima lahko več sob
+    @OneToMany(mappedBy = "osebe",  cascade = CascadeType.ALL) //ena oseba ima lahko več sob
     private List<Soba> sobe;
 
     public Integer getOsebaId() {
