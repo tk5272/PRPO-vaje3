@@ -4,6 +4,8 @@ import si.fri.prpo.skupina27.entitete.Oseba;
 import si.fri.prpo.skupina27.entitete.Soba;
 import si.fri.prpo.skupina27.entitete.Vrata;
 import si.fri.prpo.skupina27.storitve.dtos.DodajanjeVratDto;
+import si.fri.prpo.skupina27.storitve.dtos.OsebaDto;
+import si.fri.prpo.skupina27.storitve.dtos.SobaDto;
 import si.fri.prpo.skupina27.storitve.zrna.OsebeZrno;
 import si.fri.prpo.skupina27.storitve.zrna.PoslovneMetodeZrno;
 import si.fri.prpo.skupina27.storitve.zrna.SobeZrno;
@@ -58,6 +60,8 @@ public class JPAServlet extends HttpServlet {
 
         pw.println("\nime sobe z vrati 1: "+ vr.get(0).getSoba().getImeSobe());
 
+        //--------------------------------------------------------------------------------
+
         pw.println("\nDODAJ 3 VRATA SOBI Z ID 1\n");
         DodajanjeVratDto dvt = new DodajanjeVratDto();
         dvt.setSobaId(1);
@@ -68,6 +72,19 @@ public class JPAServlet extends HttpServlet {
         vr = vrataZrno.getAllVrata();
         for(int i = 0; i < vr.size(); i++)
             pw.println(vr.get(i));
+
+        pw.println("\nIMENA SOB, KJER JE OSEBA:");
+        OsebaDto oDto = new OsebaDto();
+        oDto.setOsebaId(1);
+        List<String> s = pZrno.sobeOsebe(oDto);
+            for(int i = 0; i < s.size(); i++)
+                pw.println(s.get(i));
+
+        pw.println("\nLJUDI NA KVADRANI METER:");
+        SobaDto sDto = new SobaDto();
+        sDto.setSobaId(2);
+        pw.println(pZrno.ljudiNaMeter(sDto));
+
 
     }
 }

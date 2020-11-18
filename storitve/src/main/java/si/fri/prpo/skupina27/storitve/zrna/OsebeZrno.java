@@ -83,5 +83,4 @@ public class OsebeZrno
 
         return false;
     }
-
 }
