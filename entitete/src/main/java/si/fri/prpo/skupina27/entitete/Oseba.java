@@ -1,5 +1,6 @@
 package si.fri.prpo.skupina27.entitete;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.*;
 
@@ -23,12 +24,13 @@ public class Oseba {
 
     private String priimek;
 
-    @OneToMany(mappedBy = "osebe",  cascade = CascadeType.ALL) //ena oseba ima lahko več sob
-    private List<Soba> sobe;
-
     public Integer getOsebaId() {
         return osebaId;
     }
+
+    @JsonbTransient
+    @OneToMany(mappedBy = "osebe",  cascade = CascadeType.ALL) //ena oseba ima lahko več sob
+    private List<Soba> sobe;
 
     public void setOsebaId(Integer osebaId) {
         this.osebaId = osebaId;

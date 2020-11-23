@@ -16,7 +16,10 @@
             <groupId>si.fri.prpo.skupina27</groupId>
             <artifactId>storitve</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-jax-rs-jersey</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-servlet-jetty</artifactId>

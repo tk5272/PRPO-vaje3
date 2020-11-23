@@ -2,6 +2,8 @@ package si.fri.prpo.skupina27.storitve.zrna;
 
 import si.fri.prpo.skupina27.entitete.Oseba;
 import si.fri.prpo.skupina27.entitete.Soba;
+import si.fri.prpo.skupina27.storitve.anotacije.BeleziKlice;
+import si.fri.prpo.skupina27.storitve.interceptorji.BeleziKliceInterceptor;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -39,6 +41,7 @@ public class SobeZrno {
     @PersistenceContext(unitName = "lokacijski-opomniki-jpa")
     private EntityManager em;
 
+    @BeleziKlice
     public List<Soba> getSobe() {
 
         List<Soba> sobe = em.createNamedQuery("Soba.getAll").getResultList();
@@ -46,6 +49,7 @@ public class SobeZrno {
         return sobe;
     }
 
+    @BeleziKlice
     public Soba getSoba(int sobaId) {
 
         return em.find(Soba.class, sobaId);

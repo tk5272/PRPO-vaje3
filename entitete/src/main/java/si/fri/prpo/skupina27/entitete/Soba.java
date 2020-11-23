@@ -1,5 +1,6 @@
 package si.fri.prpo.skupina27.entitete;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.*;
 
@@ -33,6 +34,7 @@ public class Soba {
     @Column(name = "max_ljudi")
     private Integer maxLjudi;
 
+    @JsonbTransient
     @OneToMany(mappedBy = "soba", cascade = CascadeType.ALL)
     private List<Vrata> vrata;
 
