@@ -42,6 +42,24 @@ public class SobeVir {
         return Response.status(Response.Status.OK).entity(soba).build();
     }
 
+    @POST
+    public Response dodajSobo(Soba soba) {
+        return Response.status(Response.Status.CREATED).
+                entity(sobeZrno.dodajSobo(soba)).build();
+    }
 
+    @PUT
+    @Path("{id}")
+    public Response posodobiSobo(@PathParam("id") Integer id, Soba soba) {
+        return Response.status(Response.Status.OK)
+                .entity(sobeZrno.posodobiSobo(id, soba)).build();
+    }
+
+    @DELETE
+    @Path("{id}")
+    public Response odstraniSobo(@PathParam("id") Integer id) {
+        return Response.status(Response.Status.OK)
+                .entity(sobeZrno.odstraniSobo(id)).build();
+    }
 
 }

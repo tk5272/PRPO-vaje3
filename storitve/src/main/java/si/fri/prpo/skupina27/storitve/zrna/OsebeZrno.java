@@ -1,6 +1,7 @@
 package si.fri.prpo.skupina27.storitve.zrna;
 
 import si.fri.prpo.skupina27.entitete.Oseba;
+import si.fri.prpo.skupina27.storitve.anotacije.BeleziKlice;
 
 import javax.annotation.*;
 import javax.enterprise.context.ApplicationScoped;
@@ -38,6 +39,7 @@ public class OsebeZrno
     @PersistenceContext(unitName = "lokacijski-opomniki-jpa")
     private EntityManager em;
 
+    @BeleziKlice
     public List<Oseba> getOsebe() {
 
         List<Oseba> osebe = em.createNamedQuery("Oseba.getAll").getResultList();
@@ -46,11 +48,13 @@ public class OsebeZrno
         return osebe;
     }
 
+    @BeleziKlice
     public Oseba getOseba(int osebaId) {
 
         return em.find(Oseba.class, osebaId);
     }
 
+    @BeleziKlice
     @Transactional
     public Oseba dodajOsebo(Oseba oseba){
 
@@ -61,6 +65,7 @@ public class OsebeZrno
         return oseba;
     }
 
+    @BeleziKlice
     @Transactional
     public Oseba posodobiOsebo(int osebaId, Oseba oseba) {
 
@@ -71,6 +76,7 @@ public class OsebeZrno
         return oseba;
     }
 
+    @BeleziKlice
     @Transactional
     public boolean odstraniOsebo(int osebaId) {
 

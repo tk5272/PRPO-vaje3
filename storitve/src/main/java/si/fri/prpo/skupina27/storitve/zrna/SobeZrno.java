@@ -8,6 +8,7 @@ import si.fri.prpo.skupina27.storitve.interceptorji.BeleziKliceInterceptor;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
-@ApplicationScoped //@RequestScoped
+@RequestScoped
 
 public class SobeZrno {
 
@@ -55,6 +56,7 @@ public class SobeZrno {
         return em.find(Soba.class, sobaId);
     }
 
+    @BeleziKlice
     @Transactional
     public Soba dodajSobo(Soba soba){
 
@@ -65,6 +67,7 @@ public class SobeZrno {
         return soba;
     }
 
+    @BeleziKlice
     @Transactional
     public Soba posodobiSobo(int sobaId, Soba soba) {
 
@@ -75,6 +78,7 @@ public class SobeZrno {
         return soba;
     }
 
+    @BeleziKlice
     @Transactional
     public boolean odstraniSobo(int sobaId) {
 

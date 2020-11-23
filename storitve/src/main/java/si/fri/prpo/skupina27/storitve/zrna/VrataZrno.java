@@ -2,6 +2,7 @@ package si.fri.prpo.skupina27.storitve.zrna;
 
 import si.fri.prpo.skupina27.entitete.Oseba;
 import si.fri.prpo.skupina27.entitete.Vrata;
+import si.fri.prpo.skupina27.storitve.anotacije.BeleziKlice;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -51,6 +52,7 @@ public class VrataZrno {
         return em.find(Vrata.class, vrataId);
     }
 
+    @BeleziKlice
     @Transactional
     public Vrata dodajVrata(Vrata vrata){
 
@@ -61,6 +63,7 @@ public class VrataZrno {
         return vrata;
     }
 
+    @BeleziKlice
     @Transactional
     public boolean odstraniVrata(int vrataId) {
 
