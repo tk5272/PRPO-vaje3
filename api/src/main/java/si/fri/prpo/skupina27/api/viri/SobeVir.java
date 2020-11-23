@@ -61,5 +61,4 @@ public class SobeVir {
         return Response.status(Response.Status.OK)
                 .entity(sobeZrno.odstraniSobo(id)).build();
     }
-
 }

@@ -1,8 +1,6 @@
 package si.fri.prpo.skupina27.api.viri;
 
-import si.fri.prpo.skupina27.entitete.Oseba;
 import si.fri.prpo.skupina27.entitete.Vrata;
-import si.fri.prpo.skupina27.storitve.zrna.OsebeZrno;
 import si.fri.prpo.skupina27.storitve.zrna.VrataZrno;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -52,5 +50,4 @@ public class VrataVir {
         return Response.status(Response.Status.OK)
                 .entity(vrataZrno.odstraniVrata(id)).build();
     }
-
 }

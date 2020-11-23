@@ -57,5 +57,4 @@ public class OsebeVir {
         return Response.status(Response.Status.OK)
                 .entity(osebeZrno.odstraniOsebo(id)).build();
     }
-
 }
