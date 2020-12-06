@@ -7,6 +7,7 @@ import si.fri.prpo.skupina27.entitete.Vrata;
 import si.fri.prpo.skupina27.storitve.dtos.DodajanjeVratDto;
 import si.fri.prpo.skupina27.storitve.dtos.OsebaDto;
 import si.fri.prpo.skupina27.storitve.dtos.SobaDto;
+import si.fri.prpo.skupina27.storitve.izjeme.NeveljavenUporabnikIdIzjema;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -66,8 +67,9 @@ public class PoslovneMetodeZrno {
         Oseba oseba = osebeZrno.getOseba(oDto.getOsebaId());
 
         if (oseba == null) {
-            log.info("Oseba ne obstaja");
-            return null;
+            String msg = "Oseba ne obstaja";
+            log.info(msg);
+            throw new NeveljavenUporabnikIdIzjema(msg);
         }
 
         if (oseba.getSobe() == null) {

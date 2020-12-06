@@ -1,6 +1,8 @@
 package si.fri.prpo.skupina27.api.viri;
 
+import com.kumuluz.ee.rest.beans.QueryParameters;
 import si.fri.prpo.skupina27.entitete.Oseba;
+import si.fri.prpo.skupina27.storitve.izjeme.NeveljavenUporabnikIdIzjema;
 import si.fri.prpo.skupina27.storitve.zrna.OsebeZrno;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -27,15 +29,26 @@ public class OsebeVir {
 
     @GET
     public Response vrniOsebe() {
-        List<Oseba> osebe = osebeZrno.getOsebe();
-        return Response.status(Response.Status.OK).entity(osebe).build();
+        /*List<Oseba> osebe = osebeZrno.getOsebe();
+        return Response.status(Response.Status.OK).entity(osebe).build();*/
+        QueryParameters query = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
+        Long osebeCount = osebeZrno.getOsebeCount(query);
+        return Response
+                        .ok(osebeZrno.getOsebe(query))
+                        .header("X-Total-Count", osebeCount)
+                        .build();
     }
 
     @GET
     @Path("{id}")
     public Response vrniOsebo(@PathParam("id") Integer id) {
         Oseba oseba = osebeZrno.getOseba(id);
-        return Response.status(Response.Status.OK).entity(oseba).build();
+
+        if (oseba != null) {
+            return Response.status(Response.Status.OK).entity(oseba).build();
+        } else {
+            throw new NeveljavenUporabnikIdIzjema("Uporabnika ni mogoče najti. Neveljaven ID.");
+        }
     }
 
     @POST

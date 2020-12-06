@@ -1,1 +1,11 @@
-TODO: v REST dodaj še dodatne metode. Naredil sem ze za Soba getall pa get. Sem dodal @JsonBtransient ampak pazi se useen ce ne bo delal. Stevec bi ze mogu delat.
+Sem naredil:\
+-Implementacija ostranjevanja, sortiranja in filtriranja, vendar ne znam
+narediti tega "Testirajte delovanje ostranjevanja, sortiranja in filtriranja.
+Pripravite si primere klicev, ki jih boste demonstrirali na zagovoru. Pomagajte si s primeri"
+A to moram kaj v kodo dat al v url??\
+-Preslikovalci napak.
+
+TODO:\
+-Dokumentiranje storitev REST z uporabo OpenAPI\
+-pa pri Implementacija ostranjevanja, sortiranja in filtriranja, kako
+naredim te primere??

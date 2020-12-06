@@ -1,5 +1,7 @@
 package si.fri.prpo.skupina27.storitve.zrna;
 
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.fri.prpo.skupina27.entitete.Oseba;
 import si.fri.prpo.skupina27.entitete.Soba;
 import si.fri.prpo.skupina27.storitve.anotacije.BeleziKlice;
@@ -48,6 +50,16 @@ public class SobeZrno {
         List<Soba> sobe = em.createNamedQuery("Soba.getAll").getResultList();
 
         return sobe;
+    }
+
+    public List<Soba> getSobe(QueryParameters query) {
+
+        return JPAUtils.queryEntities(em, Soba.class, query);
+    }
+
+    public Long getSobeCount(QueryParameters query) {
+
+        return JPAUtils.queryEntitiesCount(em, Soba.class, query);
     }
 
     @BeleziKlice

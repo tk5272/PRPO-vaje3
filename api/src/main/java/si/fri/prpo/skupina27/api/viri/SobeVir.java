@@ -1,6 +1,6 @@
 package si.fri.prpo.skupina27.api.viri;
 
-
+import com.kumuluz.ee.rest.beans.QueryParameters;
 import si.fri.prpo.skupina27.entitete.Soba;
 import si.fri.prpo.skupina27.storitve.zrna.SobeZrno;
 
@@ -29,10 +29,14 @@ public class SobeVir {
 
     @GET
     public Response vrniSobe() {
-
-        //QueryParameters query =
-        List<Soba> sobe = sobeZrno.getSobe();
-        return Response.status(Response.Status.OK).entity(sobe).build();
+        /*List<Soba> sobe = sobeZrno.getSobe();
+        return Response.status(Response.Status.OK).entity(sobe).build();*/
+        QueryParameters query = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
+        Long sobeCount = sobeZrno.getSobeCount(query);
+        return Response
+                .ok(sobeZrno.getSobe(query))
+                .header("X-Total-Count", sobeCount)
+                .build();
     }
 
     @GET

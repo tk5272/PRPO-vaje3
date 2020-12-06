@@ -1,5 +1,6 @@
 package si.fri.prpo.skupina27.api.viri;
 
+import com.kumuluz.ee.rest.beans.QueryParameters;
 import si.fri.prpo.skupina27.entitete.Vrata;
 import si.fri.prpo.skupina27.storitve.zrna.VrataZrno;
 
@@ -27,8 +28,14 @@ public class VrataVir {
 
     @GET
     public Response vrniVsaVrata() {
-        List<Vrata> vrata = vrataZrno.getAllVrata();
-        return Response.status(Response.Status.OK).entity(vrata).build();
+        /*List<Vrata> vrata = vrataZrno.getAllVrata();
+        return Response.status(Response.Status.OK).entity(vrata).build();*/
+        QueryParameters query = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
+        Long vrataCount = vrataZrno.getAllVrataCount(query);
+        return Response
+                .ok(vrataZrno.getAllVrata(query))
+                .header("X-Total-Count", vrataCount)
+                .build();
     }
 
     @GET
