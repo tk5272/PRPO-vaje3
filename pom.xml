@@ -25,7 +25,8 @@
         <kumuluzee.version>3.11.0</kumuluzee.version>
 
         <postgresql.version>42.2.18</postgresql.version>
-
+        <kumuluzee-mp.version>1.4.1</kumuluzee-mp.version>
+        <kumuluzee-api.version>1.4.0</kumuluzee-api.version>
         <kumuluzee-rest.version>1.4.0</kumuluzee-rest.version>
     </properties>
 
@@ -49,6 +50,21 @@
                 <groupId>com.kumuluz.ee.rest</groupId>
                 <artifactId>kumuluzee-rest-core</artifactId>
                 <version>${kumuluzee-rest.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.config</groupId>
+                <artifactId>kumuluzee-config-mp</artifactId>
+                <version>${kumuluzee-mp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.openapi</groupId>
+                <version>${kumuluzee-api.version}</version>
+                <artifactId>kumuluzee-openapi-mp</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.openapi</groupId>
+                <version>${kumuluzee-api.version}</version>
+                <artifactId>kumuluzee-openapi-mp-ui</artifactId>
             </dependency>
 
             <dependency>

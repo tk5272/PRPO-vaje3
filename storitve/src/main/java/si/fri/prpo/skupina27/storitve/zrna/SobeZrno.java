@@ -52,11 +52,13 @@ public class SobeZrno {
         return sobe;
     }
 
+    @BeleziKlice
     public List<Soba> getSobe(QueryParameters query) {
 
         return JPAUtils.queryEntities(em, Soba.class, query);
     }
 
+    @BeleziKlice
     public Long getSobeCount(QueryParameters query) {
 
         return JPAUtils.queryEntitiesCount(em, Soba.class, query);
