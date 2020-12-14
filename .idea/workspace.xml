@@ -23,6 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="762c7f8a-622e-4f0f-825d-4a693c408b87" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/PRPO-vaje3.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
@@ -163,6 +164,13 @@
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/si/fri/prpo/skupina27/api/SledilnikApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/si/fri/prpo/skupina27/api/SledilnikApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/si/fri/prpo/skupina27/api/viri/SobeVir.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/si/fri/prpo/skupina27/api/viri/SobeVir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storitve/src/main/java/si/fri/prpo/skupina27/storitve/zrna/SobeZrno.java" beforeDir="false" afterPath="$PROJECT_DIR$/storitve/src/main/java/si/fri/prpo/skupina27/storitve/zrna/SobeZrno.java" afterDir="false" />
+>>>>>>> parent of 44d7a04 (koncal vaje in odstranil vse odvecne datoteke)
     </list>
     <list id="4351a1b4-53c4-4fcb-ab61-92966f3097b7" name="Revert &quot;dodaj 1. poslovno metodo&quot;" comment="Revert &quot;dodaj 1. poslovno metodo&quot;&#10;&#10;This reverts commit a27879e4" />
     <option name="SHOW_DIALOG" value="false" />
