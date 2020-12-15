@@ -1,12 +1,14 @@
 package si.fri.prpo.skupina27.storitve.zrna;
 
 
+import com.kumuluz.ee.configuration.utils.ConfigurationUtil;
 import si.fri.prpo.skupina27.entitete.Oseba;
 import si.fri.prpo.skupina27.entitete.Soba;
 import si.fri.prpo.skupina27.entitete.Vrata;
 import si.fri.prpo.skupina27.storitve.dtos.DodajanjeVratDto;
 import si.fri.prpo.skupina27.storitve.dtos.OsebaDto;
 import si.fri.prpo.skupina27.storitve.dtos.SobaDto;
+import si.fri.prpo.skupina27.storitve.dtos.ZapisDto;
 import si.fri.prpo.skupina27.storitve.izjeme.NeveljavenUporabnikIdIzjema;
 
 import javax.annotation.PostConstruct;
@@ -14,6 +16,11 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import javax.ws.rs.InternalServerErrorException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.MediaType;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,9 +39,17 @@ public class PoslovneMetodeZrno {
     @Inject
     private VrataZrno vrataZrno;
 
+    private Client httpClient;
+    private String baseUrl;
+
     @PostConstruct
     private void init() {
-        log.info("Inicializacija: " + OsebeZrno.class.getSimpleName());
+
+        log.info("Inicializacija: " + PoslovneMetodeZrno.class.getSimpleName());
+
+        httpClient = ClientBuilder.newClient();
+        baseUrl = ConfigurationUtil.getInstance().get("integrations.podatki.base-url")
+                .orElse("http://localhost:8081/V1podatki");
     }
 
     @PreDestroy
@@ -99,4 +114,19 @@ public class PoslovneMetodeZrno {
         izracun = (double) Math.round(izracun*100) / 100;
         return izracun;
     }
+
+    @Transactional
+    public void dodajZapis(Oseba o, Soba s) {
+        try {
+            httpClient
+                    .target(baseUrl + "/zasedenost/")
+                    .request(MediaType.APPLICATION_JSON)
+                    .post(Entity.json(new ZapisDto(o, s)));
+
+        } catch (Exception e) {
+            log.severe(e.getMessage());
+            throw new InternalServerErrorException();
+        }
+    }
+
 }
