@@ -1,0 +1,18 @@
+kumuluzee:
+  name: hranjenje-podatkov
+  version: 1.0.0
+  env:
+    name: dev
+  server:
+    http:
+      port: 8081
+  health:
+    checks:
+      disk-space-health-check:
+        threshold: 10000
+  datasources:
+    - jndi-name: jdbc/sledilnikDS
+      connection-url: jdbc:postgresql://localhost:5432/uporabniki
+      username: postgres
+      password: postgres
+      max-pool-size: 20
