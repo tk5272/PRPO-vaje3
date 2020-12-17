@@ -12,3 +12,13 @@ kumuluzee:
   integrations:
     podatki:
       base-url: http://localhost:8081/V1podatki
+  security:
+    keycloak:
+      json: '{
+               "realm": "master",
+               "auth-server-url": "http://localhost:8082/auth/",
+               "ssl-required": "external",
+               "resource": "sobe-app",
+               "public-client": true,
+               "confidential-port": 0
+             }'

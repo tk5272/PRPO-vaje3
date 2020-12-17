@@ -1,6 +1,8 @@
 package si.fri.prpo.skupina27.api.viri;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.security.annotations.Secure;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -10,6 +12,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import si.fri.prpo.skupina27.entitete.Soba;
 import si.fri.prpo.skupina27.storitve.zrna.SobeZrno;
 
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -23,7 +26,8 @@ import java.util.List;
 @Path("sobe") //mnozinski samostalnik
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-// v Entitete/Soba dodaj JSONTransient, da se ne zacikla
+@CrossOrigin(supportedMethods = "GET, POST")
+@Secure
 
 public class SobeVir {
 
@@ -67,6 +71,7 @@ public class SobeVir {
     }
 
     @POST
+    @RolesAllowed("admin")
     public Response dodajSobo(@RequestBody(
             description = "Data of the room we want to add.",
             required = true,
@@ -79,6 +84,7 @@ public class SobeVir {
     }
 
     @PUT
+    @RolesAllowed({"employee", "admin"})
     @Path("{id}")
     public Response posodobiSobo(@PathParam("id") Integer id, Soba soba) {
         return Response.status(Response.Status.OK)
@@ -86,6 +92,7 @@ public class SobeVir {
     }
 
     @DELETE
+    @RolesAllowed("admin")
     @Path("{id}")
     public Response odstraniSobo(@PathParam("id") Integer id) {
         return Response.status(Response.Status.OK)

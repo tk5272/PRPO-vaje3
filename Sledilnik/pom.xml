@@ -23,11 +23,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <kumuluzee.version>3.11.0</kumuluzee.version>
-
-        <postgresql.version>42.2.18</postgresql.version>
         <kumuluzee-mp.version>1.4.1</kumuluzee-mp.version>
         <kumuluzee-api.version>1.4.0</kumuluzee-api.version>
         <kumuluzee-rest.version>1.4.0</kumuluzee-rest.version>
+        <kumuluzee-cors.version>1.0.6</kumuluzee-cors.version>
+        <kumuluzee-security.version>1.2.0</kumuluzee-security.version>
+        <keycloak.version>12.0.0</keycloak.version>
+        <postgresql.version>42.2.18</postgresql.version>
     </properties>
 
     <dependencyManagement>
@@ -65,6 +67,21 @@
                 <groupId>com.kumuluz.ee.openapi</groupId>
                 <version>${kumuluzee-api.version}</version>
                 <artifactId>kumuluzee-openapi-mp-ui</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.cors</groupId>
+                <artifactId>kumuluzee-cors</artifactId>
+                <version>${kumuluzee-cors.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.security</groupId>
+                <artifactId>kumuluzee-security-keycloak</artifactId>
+                <version>${kumuluzee-security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-jetty94-adapter</artifactId>
+                <version>${keycloak.version}</version>
             </dependency>
 
             <dependency>
