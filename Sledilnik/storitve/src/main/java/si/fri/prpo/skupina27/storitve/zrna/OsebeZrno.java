@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class OsebeZrno
 {
 
-    private Logger log = Logger.getLogger(OsebeZrno.class.getName());
+    final Logger log = Logger.getLogger(OsebeZrno.class.getName());
     private String zrno;
 
     @PostConstruct

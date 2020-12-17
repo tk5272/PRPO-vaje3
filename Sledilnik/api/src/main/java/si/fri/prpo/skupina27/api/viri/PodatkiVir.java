@@ -28,7 +28,7 @@ import javax.ws.rs.core.UriInfo;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 
-public class podatkiVir {
+public class PodatkiVir {
 
     @Context
     protected UriInfo uriInfo;
@@ -45,8 +45,8 @@ public class podatkiVir {
     @POST
     @Path("{idOsebe}/{idSobe}")
     public Response dodajZapis(
-             @PathParam("idOsebe") Integer osebaId,
-             @PathParam("idSobe") Integer sobaId) {
+            @PathParam("idOsebe") Integer osebaId,
+            @PathParam("idSobe") Integer sobaId) {
 
         System.out.println(osebaId);
 
@@ -57,11 +57,6 @@ public class podatkiVir {
 
         return Response.status(Response.Status.OK).build();
     }
-
-
-
-
-
 
 
 }
