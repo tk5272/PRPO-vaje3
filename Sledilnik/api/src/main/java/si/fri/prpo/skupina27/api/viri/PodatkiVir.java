@@ -1,6 +1,7 @@
 package si.fri.prpo.skupina27.api.viri;
 
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -27,6 +28,7 @@ import javax.ws.rs.core.UriInfo;
 @Path("podatki") //mnozinski samostalnik
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@CrossOrigin(supportedMethods = "POST, GET")
 
 public class PodatkiVir {
 
@@ -56,6 +58,14 @@ public class PodatkiVir {
         pZrno.dodajZapis(o, s);
 
         return Response.status(Response.Status.OK).build();
+    }
+
+    @GET
+    @Path("slike/{beseda}")
+    public Response pridobiSlike(
+            @PathParam("beseda") String beseda) {
+        Object obj = pZrno.pridobiSlike(beseda);
+        return Response.status(Response.Status.OK).entity(obj).build();
     }
 
 

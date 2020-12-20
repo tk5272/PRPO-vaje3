@@ -12,6 +12,9 @@ kumuluzee:
   integrations:
     podatki:
       base-url: http://localhost:8081/V1podatki
+    slike-api:
+      base-url: https://api.unsplash.com
+      api-key: zAUlUQA2fa4G53X-7-cdtVjOBpoOjNNOqx1acSWOlcM
   security:
     keycloak:
       json: '{

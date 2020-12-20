@@ -1,5 +1,6 @@
 package si.fri.prpo.skupina27.api.viri;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import si.fri.prpo.skupina27.entitete.Oseba;
 import si.fri.prpo.skupina27.storitve.izjeme.NeveljavenUporabnikIdIzjema;
@@ -18,6 +19,7 @@ import java.util.List;
 @Path("osebe")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@CrossOrigin(supportedMethods = "GET, POST, DELETE")
 
 public class OsebeVir {
 

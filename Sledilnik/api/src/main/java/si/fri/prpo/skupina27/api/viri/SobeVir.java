@@ -10,11 +10,13 @@ import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import si.fri.prpo.skupina27.entitete.Soba;
+import si.fri.prpo.skupina27.storitve.zrna.PoslovneMetodeZrno;
 import si.fri.prpo.skupina27.storitve.zrna.SobeZrno;
 
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -26,8 +28,8 @@ import java.util.List;
 @Path("sobe") //mnozinski samostalnik
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@CrossOrigin(supportedMethods = "GET, POST")
-@Secure
+@CrossOrigin(supportedMethods = "GET, POST, DELETE, OPTIONS")
+//@Secure
 
 public class SobeVir {
 
@@ -36,6 +38,9 @@ public class SobeVir {
 
     @Inject
     private SobeZrno sobeZrno;
+
+    @Inject
+    private PoslovneMetodeZrno poslovnoZrno;
 
     @GET
     @Operation(summary = "Gets all rooms", description = "Returns all the rooms.")
@@ -71,7 +76,7 @@ public class SobeVir {
     }
 
     @POST
-    @RolesAllowed("admin")
+    //@RolesAllowed("admin")
     public Response dodajSobo(@RequestBody(
             description = "Data of the room we want to add.",
             required = true,
@@ -84,7 +89,7 @@ public class SobeVir {
     }
 
     @PUT
-    @RolesAllowed({"employee", "admin"})
+    //@RolesAllowed({"employee", "admin"})
     @Path("{id}")
     public Response posodobiSobo(@PathParam("id") Integer id, Soba soba) {
         return Response.status(Response.Status.OK)
@@ -92,10 +97,24 @@ public class SobeVir {
     }
 
     @DELETE
-    @RolesAllowed("admin")
+    //@RolesAllowed("admin")
     @Path("{id}")
     public Response odstraniSobo(@PathParam("id") Integer id) {
         return Response.status(Response.Status.OK)
                 .entity(sobeZrno.odstraniSobo(id)).build();
+    }
+
+    @POST
+    @Path("{id}/dodaj/{stevilo}")
+    public Response dodajOsebe(
+                             @PathParam("id") Integer id,
+                             @PathParam("stevilo") Integer st) {
+        int dodaj = poslovnoZrno.dodajOsebe(id, st);
+
+        if(dodaj >= 0) {
+            return Response.status(Response.Status.OK).entity(dodaj).build();
+        }
+
+        return Response.status(Response.Status.BAD_REQUEST).build();
     }
 }

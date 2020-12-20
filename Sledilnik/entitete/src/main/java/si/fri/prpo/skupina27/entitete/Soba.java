@@ -42,7 +42,19 @@ public class Soba {
     @JoinColumn(name = "osebe_sobe")
     private Oseba osebe;
 
+    private String opis;
+
+    @Column(name = "kljucna_beseda")
+    private String kljucnaBeseda;
     // GETTERJI IN SETTERJI
+
+    public String getKljucnaBeseda() {
+        return kljucnaBeseda;
+    }
+
+    public void setKljucnaBeseda(String kljucnaBeseda) {
+        this.kljucnaBeseda = kljucnaBeseda;
+    }
 
     public Integer getSobaId() {
         return sobaId;
@@ -91,6 +103,14 @@ public class Soba {
     public Oseba getOsebe() { return osebe; }
 
     public void setOsebe(Oseba osebe) { this.osebe = osebe; }
+
+    public String getOpis() {
+        return opis;
+    }
+
+    public void setOpis(String opis) {
+        this.opis = opis;
+    }
 
     public String toString() {
         return String.format("id: %d, ime: %s in max ljudi: %d", this.sobaId, this.imeSobe, this.maxLjudi);
