@@ -17,7 +17,7 @@ import java.util.List;
 
 //keycloak username: prpoprojekt in geslo: prpoprojekt
 //docker run -e KEYCLOAK_USER=prpoprojekt -e KEYCLOAK_PASSWORD=prpoprojekt -p 8082:8080 jboss/keycloak
-//keycloak user: prpovaje / prpoprimer
+//keycloak user: prpoprojekt:prpoprojekt
 
 
 @DeclareRoles({"user", "employee", "admin"})

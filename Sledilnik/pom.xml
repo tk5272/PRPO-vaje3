@@ -28,6 +28,7 @@
         <kumuluzee-rest.version>1.4.0</kumuluzee-rest.version>
         <kumuluzee-cors.version>1.0.6</kumuluzee-cors.version>
         <kumuluzee-security.version>1.2.0</kumuluzee-security.version>
+        <kumuluzee-health.version>2.4.0</kumuluzee-health.version>
         <keycloak.version>12.0.0</keycloak.version>
         <postgresql.version>42.2.18</postgresql.version>
     </properties>
@@ -83,7 +84,11 @@
                 <artifactId>keycloak-jetty94-adapter</artifactId>
                 <version>${keycloak.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.kumuluz.ee.health</groupId>
+                <artifactId>kumuluzee-health</artifactId>
+                <version>${kumuluzee-health.version}</version>
+            </dependency>
             <dependency>
                 <groupId>si.fri.prpo.skupina27</groupId>
                 <artifactId>entitete</artifactId>

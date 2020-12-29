@@ -9,6 +9,16 @@ kumuluzee:
       username: postgres
       password: postgres
       max-pool-size: 20
+  health:
+    checks:
+      data-source-health-check:
+        type: both
+        jndi-name: jdbc/sledilnikDS
+      http-health-check:
+        - connection-url: http://localhost:8080/servlet
+        - connection-url: http://localhost:8080/v1/sobe
+        - connection-url: http://localhost:8081/servlet
+        - connection-url: https://github.com/kumuluz/kumuluzee-health
   integrations:
     podatki:
       base-url: http://localhost:8081/V1podatki

@@ -29,7 +29,7 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @CrossOrigin(supportedMethods = "GET, POST, DELETE, OPTIONS")
-//@Secure
+@Secure
 
 public class SobeVir {
 
