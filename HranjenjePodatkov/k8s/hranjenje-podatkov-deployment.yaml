@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hranjenje-podatkov-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hranjenje-podatkov
+  template:
+    metadata:
+      labels:
+        app: hranjenje-podatkov
+    spec:
+      containers:
+      - image: lb4684/hranjenje_podatkov
+        name: hranjenje-podatkov
+        ports:
+        - containerPort: 8081
+          name: server
+          protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hranjenje-podatkov
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8081
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: hranjenje-podatkov
